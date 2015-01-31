@@ -2,6 +2,8 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope, DashboardService) {
 
+    $scope.data = {};
+
     var promise = DashboardService.cities();
 
     promise.then(function(response){
