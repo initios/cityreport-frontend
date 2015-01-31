@@ -5,9 +5,11 @@
               <div class="item item-divider item-positive">
                   Incidencias por Provincia
               </div>
-              <div class="item item-text-wrap">
-                  Consulta las provincias con mayor número de incidencias.
-              </div>
+              <ul class="list">
+                  <li class="item" ng-repeat="top in data.topcities">
+                      <b>{{ top.city }} - {{ top.matches }}</b>
+                  </li>
+              </ul>
           </div>
       </a>
       <a href="">
@@ -20,15 +22,5 @@
               </div>
           </div>
       </a>
-      <!--<a href="">-->
-          <!--<div class="card">-->
-              <!--<div class="item item-divider item-positive">-->
-                  <!--Incidencias por Tipo-->
-              <!--</div>-->
-              <!--<div class="item item-text-wrap">-->
-                  <!--Consulta el porcentaje de incidencias por su tipo.-->
-              <!--</div>-->
-          <!--</div>-->
-      <!--</a>-->
   </ion-content>
 </ion-view>
