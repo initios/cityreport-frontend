@@ -2,7 +2,7 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('MapCtrl', function($scope, IssueService){
+.controller('MapCtrl', function($scope, $filter, IssueService){
 
     // Obtener la lista de incidencias
 
@@ -29,10 +29,15 @@ angular.module('starter.controllers', [])
 
         angular.forEach($scope.issues, function(value, key){
 
+            var created = new Date(value.created);
+
+            var format_date = $filter('date')(created, "EEEE, dd MMM yyyy HH:mm:ss");
+
             contentString = '<div id="content">'+
               '<div class="IWsiteNotice">'+
               '</div>'+
-              '<h3 id="firstHeading" class="firstHeading">'+ value.city + ' - '+ value.county +'</h3>'+
+              '<h4 id="firstHeading" class="firstHeading">'+ value.city + ' - '+ value.county +'</h4>'+
+              '<i>Publicada el '+ format_date + '</i>'+
               '<div class="IWbodyContent">'+
               '<p>' + value.description + '</p>'+
               '</div>'+
@@ -67,6 +72,8 @@ angular.module('starter.controllers', [])
 
 .controller('NewIssueCtrl', function($scope, IssueTypesService){
 
+    // carga de la lista de los tipos
+
     var promise = IssueTypesService.list();
 
     promise.then(function(response){
@@ -78,6 +85,10 @@ angular.module('starter.controllers', [])
         alert('error al cargar los tipos');
         
     });
+
+    $scope.send = function(){
+
+    }
 })
 
 .controller('IssuesCtrl', function($scope, IssueService){
@@ -93,5 +104,9 @@ angular.module('starter.controllers', [])
         alert('error al cargar la lista de incidencias');
 
     });
+
+})
+
+.controller('IssueDetailCtrl', function($scope, IssueService){
 
 });
