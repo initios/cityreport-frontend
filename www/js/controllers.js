@@ -2,9 +2,13 @@ angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope) {})
 
-.controller('MapCtrl', function($scope){
+.controller('MapCtrl', function($scope, IssueService){
 
-    var myLatlng = new google.maps.LatLng(37.3000, -120.4833);
+    // Obtener la lista de incidencias
+
+    var issuesPromise = IssueService.list();
+
+    var myLatlng = new google.maps.LatLng(42.239524, -8.722400);
 
     var mapOptions = {
         center: myLatlng,
@@ -15,13 +19,47 @@ angular.module('starter.controllers', [])
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
     navigator.geolocation.getCurrentPosition(function(pos) {
+        
         map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-        var myLocation = new google.maps.Marker({
-            position: new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
-            map: map,
-            title: "My Location"
-        });
     });
+
+    issuesPromise.then(function(response){
+
+        $scope.issues = response.data
+
+        angular.forEach($scope.issues, function(value, key){
+
+            contentString = '<div id="content">'+
+              '<div class="IWsiteNotice">'+
+              '</div>'+
+              '<h3 id="firstHeading" class="firstHeading">'+ value.city + ' - '+ value.county +'</h3>'+
+              '<div class="IWbodyContent">'+
+              '<p>' + value.description + '</p>'+
+              '</div>'+
+              '</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(value.lat, value.lon),
+                map: map,
+                title: value.description
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+                infowindow.open(map, marker);
+            });
+
+        });
+
+    }, function(response){
+
+        alert('error al cargar la lista de incidencias');
+
+    });
+
 
     $scope.map = map;
     
@@ -42,7 +80,18 @@ angular.module('starter.controllers', [])
     });
 })
 
-.controller('IssuesCtrl', function($scope){
+.controller('IssuesCtrl', function($scope, IssueService){
 
+    var issuesPromise = IssueService.list();
+
+    issuesPromise.then(function(response){
+
+        $scope.issues = response.data
+
+    }, function(response){
+
+        alert('error al cargar la lista de incidencias');
+
+    });
 
 });
