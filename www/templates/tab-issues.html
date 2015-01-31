@@ -2,7 +2,7 @@
     <ion-content>
         <ul class="list">
             <li class="item" ng-repeat="issue in issues">
-                <ion-item class="item-avatar" type="item-text-wrap" href="#/tab/issues/detail">
+                <ion-item class="item-avatar" type="item-text-wrap" href="#/tab/issues/{{ issue.id }}">
                     <b>{{ issue.city }} - {{ issue.county }}</b>
                     <p class="cursive">{{ issue.created | date : 'EEEE' }} {{ issue.created | date : 'dd' }} {{ issue.created | date : 'MMMM' }} {{ issue.created | date : 'yyyy' }}</p>
                     <p>{{ issue.description | limitTo : 40 }}</p>
