@@ -5,7 +5,7 @@
 
                 <ion-item class="item-avatar" type="item-text-wrap" href="#/tab/issues/{{ issue.id }}">
                     <div class="bar bar-header bar-{{ issue.color }}">
-                        <h1 class="title">{{ issue.type }}</h1>
+                        <h1 class="title">{{ issue.type.name }}</h1>
                     </div>
                     <b>{{ issue.city }} - {{ issue.county }}</b>
                     <p class="cursive">{{ issue.created | date : 'EEEE' }} {{ issue.created | date : 'dd' }} {{ issue.created | date : 'MMMM' }} {{ issue.created | date : 'yyyy' }}</p>
