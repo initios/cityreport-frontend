@@ -1,32 +1,28 @@
 <ion-view view-title="Dashboard">
   <ion-content>
-      <a href="">
-          <div class="card">
-              <div class="item item-divider item-positive">
-                  Incidencias por Provincia
-              </div>
-              <div class="item item-text-wrap">
-                  <ul class="list">
-                      <li class="item" ng-repeat="top in data.topCities">
-                          <b>{{ top.city }} - {{ top.matches }}</b>
-                      </li>
-                  </ul>
-              </div>
+      <div class="card">
+          <div class="item item-divider item-positive">
+              Incidencias por Provincia
           </div>
-      </a>
-      <a href="">
-          <div class="card">
-              <div class="item item-divider item-positive">
-                  Incidencias por Ciudad
-              </div>
-              <div class="item item-text-wrap">
-                  <ul class="list">
-                      <li class="item" ng-repeat="top in data.topCities">
-                          <b>{{ top.city }} - {{ top.matches }}</b>
-                      </li>
-                  </ul>
-              </div>
+          <div class="item item-text-wrap">
+              <ul class="list">
+                  <li class="item" ng-repeat="top in data.topCounties">
+                      <b>{{ top.county }} - {{ top.matches }}</b>
+                  </li>
+              </ul>
           </div>
-      </a>
+      </div>
+      <div class="card">
+          <div class="item item-divider item-positive">
+              Incidencias por Ciudad
+          </div>
+          <div class="item item-text-wrap">
+              <ul class="list">
+                  <li class="item" ng-repeat="top in data.topCities">
+                      <b>{{ top.city }} - {{ top.matches }}</b>
+                  </li>
+              </ul>
+          </div>
+      </div>
   </ion-content>
 </ion-view>
