@@ -1,9 +1,22 @@
 <ion-view view-title="detalle de incidencia">
   <ion-content class="padding">
-    
-    <h3>Notes</h3>
-    <p>
-      detalle de inicidencia
+
+    <div class="list card wrapper-issue-details">
+
+      <div class="item item-avatar item-{{ data.issue.color }}">
+        <h2>Marty McFly {{ data.issue.city }} - {{ data.issue.county }}</h2>
+        <p class="cursive">November 05, 1955 {{ data.issue.created | date : 'EEEE' }} {{ data.issue.created | date : 'dd' }} {{ data.issue.created | date : 'MMMM' }} {{ data.issue.created | date : 'yyyy' }}</p>
+      </div>
+
+      <div class="item item-body">
+        <p>{{ data.issue.description }}
+          This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+          the content is from a card-body consisting of an image and paragraph text. The footer
+          consists of tabs, icons aligned left, within the card-footer.
+        </p>
+      </div>
+
+    </div>
       
   </ion-content>
 </ion-view>

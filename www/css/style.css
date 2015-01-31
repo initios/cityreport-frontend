@@ -30,3 +30,17 @@ a:link {
     position: static;
     margin-bottom: 10px;
 }
+
+.list .bar-header h1 {
+    text-align: left;
+}
+
+.wrapper-issue-details .item-avatar {
+    padding-left: 16px;
+    background-color: #111111;
+}
+
+.wrapper-issue-details .item-avatar h2,
+.wrapper-issue-details .item-avatar p {
+    color: #ffffff;
+}
