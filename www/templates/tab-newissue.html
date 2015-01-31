@@ -5,16 +5,17 @@
                 <div class="input-label">
                     Tipo de Incidencia
                 </div>
-                <select ng-model="type">
+
+                <select ng-model="opt">
                     <option ng-repeat="item in issueTypes" value="{{ item.id }}">{{ item.name }}</option>
                 </select>
             </div>
             <div class="list">
                 <label class="item item-input">
-                    <textarea ng-model="desc" placeholder="Descripción"></textarea>
+                <textarea ng-model="description" placeholder="Descripción"></textarea>
                 </label>
-                <div class="padding">
-                    <button type="submit" ng-click="send()" class="button button-block button-positive">Enviar</button>
+                <div class="padding" ng-controller="IssuesCtrl">
+                    <button type="submit" class="button button-block button-positive" ng-click="test()">Enviar</button>
                 </div>
             </div>
         </form>
