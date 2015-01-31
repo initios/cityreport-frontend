@@ -1,1 +1,12 @@
-/* Empty. Add your own CSS if you like */
+#issues-form .padding {
+    padding-top: 80px;
+}
+
+#issues-form .item {
+    top: 30px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
