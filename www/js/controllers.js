@@ -16,6 +16,18 @@ angular.module('starter.controllers', [])
         
     });
 
+    var promiseCountys = DashboardService.counties();
+
+    promise.then(function(response){
+
+        $scope.data.topCountys = response.data;
+
+    }, function(response) {
+
+        alert('error al cargar las provincisas');
+        
+    });
+
 })
 
 .controller('MapCtrl', function($scope, $filter, IssueService){
