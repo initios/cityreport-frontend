@@ -109,6 +109,4 @@ angular.module('starter.controllers', [])
 
 .controller('IssueDetailCtrl', function($scope, IssueService){
 
-    alert('aa')
-
 });
