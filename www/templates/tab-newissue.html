@@ -1,20 +1,20 @@
-<ion-view view-title="Issue">
+<ion-view view-title="Nueva Incidencia">
     <ion-content>
         <form ng-submit="" id="issues-form">
             <div class="item item-input item-select">
                 <div class="input-label">
                     Tipo de Incidencia
                 </div>
-                <select>
-                    <option ng-repeat="item in issuesTypes" value="{{ item.id }}">{{ item.name }}</option>
+                <select ng-model="type">
+                    <option ng-repeat="item in issueTypes" value="{{ item.id }}">{{ item.name }}</option>
                 </select>
             </div>
             <div class="list">
                 <label class="item item-input">
-                    <textarea placeholder="Descripción"></textarea>
+                    <textarea ng-model="desc" placeholder="Descripción"></textarea>
                 </label>
                 <div class="padding">
-                    <button type="submit" class="button button-block button-positive">Enviar</button>
+                    <button type="submit" ng-click="send()" class="button button-block button-positive">Enviar</button>
                 </div>
             </div>
         </form>

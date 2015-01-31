@@ -67,6 +67,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     }
   })
+  .state('tab.issue-detail', {
+      url: '/issues/:issueId',
+      views: {
+        'tab-issuess': {
+          templateUrl: 'templates/issue-detail.html',
+          controller: 'IssueDetailCtrl'
+        }
+      }
+  })
 
   .state('tab.newissue', {
     url: '/newissue',
