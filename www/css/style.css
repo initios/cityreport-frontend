@@ -1,3 +1,15 @@
+
+/* Empty. Add your own CSS if you like */
+
+.scroll {
+    height: 100%;
+}
+ 
+#map {
+    width: 100%;
+    height: 100%;
+}
+
 #issues-form .padding {
     padding-top: 60px;
 }
@@ -9,4 +21,3 @@
 a:link {
     text-decoration: none;
 }
-
