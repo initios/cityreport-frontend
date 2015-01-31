@@ -196,8 +196,6 @@ angular.module('starter.controllers', [])
 
         $scope.data.issue = response.data
 
-        console.log($scope.data.issue);
-
     }, function(response){
 
         alert('error al cargar la incidencia');
