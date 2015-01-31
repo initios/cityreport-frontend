@@ -31,6 +31,10 @@ angular.module('starter.services', [])
 
         get: function(url) {
             return $http.get(url)
+        },
+
+        post: function(url, data){
+          return $http.post(url, data);
         }
     } 
 
@@ -58,6 +62,16 @@ angular.module('starter.services', [])
       list: function(){
           
           var promise = HttpService.get(HttpService.getConfig('apiPath') + HttpService.getConfig('issues'));
+
+          return promise;
+      },
+      save: function(data){
+          var promise = HttpService.post(HttpService.getConfig('apiPath') + HttpService.getConfig('issues'), data);
+
+          return promise;
+      },
+      load: function(issueId){
+          var promise = HttpService.get(HttpService.getConfig('apiPath') + HttpService.getConfig('issues') + issueId + '/');
 
           return promise;
       }

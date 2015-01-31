@@ -70,7 +70,19 @@ angular.module('starter.controllers', [])
     
 })
 
-.controller('NewIssueCtrl', function($scope, IssueTypesService){
+.controller('NewIssueCtrl', function($scope, IssueTypesService, IssueService){
+
+    $scope.data = {
+        type_id: null,
+        description: ''
+    }
+
+    // obtengo las coordenadas actuales
+
+    navigator.geolocation.getCurrentPosition(function(pos) {
+        $scope.data.lat = pos.coords.latitude + '';
+        $scope.data.lon = pos.coords.longitude + '';
+    });
 
     // carga de la lista de los tipos
 
@@ -88,6 +100,9 @@ angular.module('starter.controllers', [])
 
     $scope.send = function(){
 
+        $scope.data.type_id = parseInt($scope.data.type_id);
+
+        IssueService.save($scope.data);
     }
 })
 
@@ -107,6 +122,21 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('IssueDetailCtrl', function($scope, IssueService){
+.controller('IssueDetailCtrl', function($scope, $stateParams, IssueService){
 
+    $scope.data = {};
+
+    var issuesPromise = IssueService.load($stateParams.issueId);
+
+    issuesPromise.then(function(response){
+
+        $scope.data.issue = response.data
+
+        console.log($scope.data.issue);
+
+    }, function(response){
+
+        alert('error al cargar la incidencia');
+
+    });
 });

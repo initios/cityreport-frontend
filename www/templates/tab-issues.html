@@ -2,7 +2,8 @@
     <ion-content>
         <ul class="list">
             <li class="item" ng-repeat="issue in issues">
-                <ion-item class="item-avatar" type="item-text-wrap" href="#/tab/issues/detail">
+
+                <ion-item class="item-avatar" type="item-text-wrap" href="#/tab/issues/{{ issue.id }}">
                     <div class="bar bar-header bar-{{ issue.color }}">
                         <h1 class="title">{{ issue.type.name }}</h1>
                     </div>
