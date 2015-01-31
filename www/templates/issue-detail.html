@@ -5,10 +5,11 @@
 
       <div class="item item-avatar item-positive">
         <h2>{{ data.issue.city }} - {{ data.issue.county }}</h2>
-        <p class="cursive">{{ data.issue.created | date : 'EEEE' }} {{ data.issue.created | date : 'dd' }} {{ data.issue.created | date : 'MMMM' }} {{ data.issue.created | date : 'yyyy' }} - {{ data.issue.address }}</p>
+        <p class="cursive">{{ data.issue.created | date : 'EEEE' }} {{ data.issue.created | date : 'dd' }} {{ data.issue.created | date : 'MMMM' }} {{ data.issue.created | date : 'yyyy' }}</p>
       </div>
 
       <div class="item item-body">
+        <b>{{ data.issue.address }}</b>
         <p>{{ data.issue.description }}
         </p>
       </div>
