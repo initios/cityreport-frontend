@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Empty. Add your own CSS if you like */
 
 .scroll {
@@ -8,3 +9,17 @@
     width: 100%;
     height: 100%;
 }
+=======
+#issues-form .padding {
+    padding-top: 80px;
+}
+
+#issues-form .item {
+    top: 30px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+>>>>>>> 2aa2ed459fe2583692ce1b05bbef539b31284f8c

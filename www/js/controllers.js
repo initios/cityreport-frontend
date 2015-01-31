@@ -38,9 +38,8 @@ angular.module('starter.controllers', [])
     }, function(response) {
 
         alert('error al cargar los tipos');
-
+        
     });
-
 })
 
 .controller('IssuesCtrl', function($scope){
