@@ -1,24 +1,33 @@
 <ion-view view-title="Nueva Incidencia">
     <ion-content>
-        <form ng-submit="" id="issues-form">
-            <div class="item item-input item-select">
-                <div class="input-label">
-                    Tipo de Incidencia
-                </div>
+        <div ng-hide="view.sended">
+            <form ng-submit="" id="issues-form">
+                <div class="item item-input item-select">
+                    <div class="input-label">
+                        Tipo de Incidencia
+                    </div>
 
-                <select ng-model="data.type_id">
-                    <option ng-repeat="item in issueTypes" value="{{ item.id }}">{{ item.name }}</option>
-                </select>
-            </div>
-            <div class="list">
-                <label class="item item-input">
-                <textarea ng-model="data.description" placeholder="Descripción"></textarea>
-
-                </label>
-                <div class="padding" ng-controller="IssuesCtrl">
-                    <button type="submit" class="button button-block button-positive" ng-click="send()">Enviar</button>
+                    <select ng-model="data.type" required>
+                        <option ng-repeat="item in issueTypes" value="{{ item.id }}">{{ item.name }}</option>
+                    </select>
                 </div>
+                <div class="list">
+                    <label class="item item-input">
+                    <textarea ng-model="data.description" placeholder="Descripción" required></textarea>
+
+                    </label>
+                    <div class="padding" ng-controller="IssuesCtrl">
+                        <button type="submit" class="button button-block button-positive" ng-click="send()">Enviar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div ng-show="view.sended">
+           
+            <div>
+                <button class="utton icon-right ion-chevron-right button-calm" ng-click="reset()">Nueva Incidencia</button>
             </div>
-        </form>
+            
+        </div>
     </ion-content>
 </ion-view>

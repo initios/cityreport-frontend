@@ -1,6 +1,20 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope, DashboardService) {
+
+    var promise = DashboardService.cities();
+
+    promise.then(function(response){
+
+        $scope.data.topCities = response.data;
+
+    }, function(response) {
+
+        alert('error al cargar las ciudades');
+        
+    });
+
+})
 
 .controller('MapCtrl', function($scope, $filter, IssueService){
 
@@ -77,6 +91,15 @@ angular.module('starter.controllers', [])
         description: ''
     }
 
+    $scope.error = {
+        type: false,
+        description: false
+    }
+
+    $scope.view = {
+        sended: false
+    }
+
     // obtengo las coordenadas actuales
 
     navigator.geolocation.getCurrentPosition(function(pos) {
@@ -99,11 +122,37 @@ angular.module('starter.controllers', [])
     });
 
     $scope.send = function(){
+        var valid = true
 
-        $scope.data.type_id = parseInt($scope.data.type_id);
+        $scope.error.type = false;
+        $scope.error.description = false;
 
-        IssueService.save($scope.data);
+        if( $scope.data.type == undefined || $scope.data.type == '')
+        {
+            valid = false;
+            $scope.error.type = true;
+        }
+
+        if( $scope.data.description == undefined || $scope.data.description == '')
+        {
+            valid = false;
+            $scope.error.description = true;
+        }        
+
+        if(valid)
+        {
+            $scope.data.type = parseInt($scope.data.type);
+            IssueService.save($scope.data);
+            $scope.view.sended = true;
+        }
     }
+
+    $scope.reset = function()
+    {
+        $scope.data.type = '';
+        $scope.data.description = '';
+        $scope.view.sended = false;
+    } 
 })
 
 .controller('IssuesCtrl', function($scope, IssueService){
