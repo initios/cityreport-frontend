@@ -16,11 +16,11 @@ angular.module('starter.controllers', [])
         
     });
 
-    var promiseCountys = DashboardService.counties();
+    var promiseCounties = DashboardService.counties();
 
-    promise.then(function(response){
+    promiseCounties.then(function(response){
 
-        $scope.data.topCountys = response.data;
+        $scope.data.topCounties = response.data;
 
     }, function(response) {
 
