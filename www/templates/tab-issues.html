@@ -1,7 +1,14 @@
 <ion-view view-title="Issue">
     <ion-content>
     
-      <span> Lista Incidencias </span>
-
+        <span> Lista Incidencias </span>
+        <ul class="list">
+            <li class="item" ng-repeat="issue in issues">
+                <p>Ciudad: {{ issue.city }}</p>
+                <p>Ciudad: {{ issue.county }}</p>
+                <p>Ciudad: {{ issue.created_at }}</p>
+                <p>Ciudad: {{ issue.description }}</p>
+            </li>
+        </ul>
     </ion-content>
 </ion-view>
