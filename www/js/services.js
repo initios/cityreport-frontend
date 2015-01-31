@@ -91,6 +91,13 @@ angular.module('starter.services', [])
           return promise;
       }
 
+      countys: function(){
+          
+          var promise = HttpService.get(HttpService.getConfig('apiPath') + 'top/countys/');
+
+          return promise;
+      }
+
   }
 
 });

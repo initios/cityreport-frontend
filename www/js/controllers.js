@@ -47,12 +47,13 @@ angular.module('starter.controllers', [])
 
             var format_date = $filter('date')(created, "EEEE, dd MMM yyyy HH:mm:ss");
 
-            contentString = '<div id="content">'+
+            contentString = '<div id="content" style="height: 400px;">'+
               '<div class="IWsiteNotice">'+
               '</div>'+
               '<h4 id="firstHeading" class="firstHeading">'+ value.city + ' - '+ value.county +'</h4>'+
               '<i>Publicada el '+ format_date + '</i>'+
               '<div class="IWbodyContent">'+
+              '<h4>'+ value.type_nested.name +'</h4>'+
               '<p>' + value.description + '</p>'+
               '</div>'+
               '</div>';
