@@ -25,3 +25,8 @@ a:link {
 .cursive {
     font-style: italic;
 }
+
+.list .bar-header {
+    position: static;
+    margin-bottom: 10px;
+}
