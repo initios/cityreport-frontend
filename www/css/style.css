@@ -37,10 +37,18 @@ a:link {
 
 .wrapper-issue-details .item-avatar {
     padding-left: 16px;
-    background-color: #111111;
+    background-color: #387ef5;
 }
 
 .wrapper-issue-details .item-avatar h2,
 .wrapper-issue-details .item-avatar p {
     color: #ffffff;
+}
+
+.item-avatar .item-content {
+    padding-left: 16px;
+}
+
+h1.title {
+    text-transform: uppercase;
 }
