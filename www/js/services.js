@@ -78,5 +78,22 @@ angular.module('starter.services', [])
 
   }
 
+})
+
+.service('DashboardService', function(HttpService){
+
+  return{
+
+      cities: function(){
+          
+          var promise = HttpService.get(HttpService.getConfig('apiPath') + 'top/cities/');
+
+          return promise;
+      }
+
+  }
+
 });
+
+
 

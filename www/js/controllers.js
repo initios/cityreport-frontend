@@ -1,6 +1,20 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('DashCtrl', function($scope, DashboardService) {
+
+    var promise = DashboardService.cities();
+
+    promise.then(function(response){
+
+        $scope.data.topCities = response.data;
+
+    }, function(response) {
+
+        alert('error al cargar las ciudades');
+        
+    });
+
+})
 
 .controller('MapCtrl', function($scope, $filter, IssueService){
 
